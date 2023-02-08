@@ -1,0 +1,92 @@
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.header-bg {
+    background-color: #000000;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.header-menu a {
+    display: inline-block; /* colocado inline-block para o padding pegar melhor quando um item cair sobre. ficar um em cima do outro */
+    padding: 16px 0;
+    color: #ffffff;
+    font-size: 18px;
+    position: relative; /* serviu para que o after nao cresça em relação com ao pai, o body. para não crescer deve-se adicionar position: relative; */
+}
+
+.header-menu a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #ffffff;
+    margin-top: 3px;
+    transition: 0.3s;
+    position: absolute; /* serviu para alinhar todo o menu */
+}
+
+.header-menu a:hover::after {
+    width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+
+    .header-menu {
+        gap: 20px;
+    }
+
+    .header-menu a {
+        background: #111111;
+        padding: 12px 16px;
+        border-radius: 4px;
+    }
+
+    .header-menu a:hover {
+        background: #2E2E2E;
+    }
+
+    .header a:after {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+     .header-menu {
+        gap: 12px;
+     }
+     .header-menu a {
+        padding: 8px 12px;
+        font-size: 14px;
+     }
+}
